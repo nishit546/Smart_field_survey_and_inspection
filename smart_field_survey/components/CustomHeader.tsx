@@ -45,7 +45,7 @@ export default function CustomHeader({ title }: CustomHeaderProps) {
 
       <Pressable onPress={goToProfile} style={styles.avatarButton}>
         <View style={styles.avatar}>
-          <Text style={styles.avatarText}>NS</Text>
+          <Text style={styles.avatarText}>ND</Text>
         </View>
       </Pressable>
     </View>
