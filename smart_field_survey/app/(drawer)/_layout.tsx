@@ -92,7 +92,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.avatarBox}>
-          <Text style={styles.avatarText}>NS</Text>
+          <Text style={styles.avatarText}>ND</Text>
         </View>
         <View>
           <Text style={styles.name}>Nishit</Text>
