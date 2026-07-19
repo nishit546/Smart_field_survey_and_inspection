@@ -32,9 +32,7 @@ const toolsNav: NavItem[] = [
   { label: 'Clipboard', icon: 'clipboard-outline', route: '/(drawer)/clipboard' },
 ];
 
-const otherNav: NavItem[] = [
-  { label: 'Settings', icon: 'settings-outline', route: '/(drawer)/settings' },
-];
+
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const router = useRouter();
@@ -113,10 +111,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         <SectionLabel title="TOOLS" />
         {toolsNav.map(item => <NavRow key={item.route} item={item} />)}
 
-        <View style={styles.divider} />
 
-        <SectionLabel title="OTHER" />
-        {otherNav.map(item => <NavRow key={item.route} item={item} />)}
       </ScrollView>
 
       {/* Footer */}
@@ -143,7 +138,7 @@ export default function DrawerLayout() {
         <Drawer.Screen name="contacts"  options={{ drawerLabel: 'Contacts'  }} />
         <Drawer.Screen name="location"  options={{ drawerLabel: 'Location'  }} />
         <Drawer.Screen name="clipboard" options={{ drawerLabel: 'Clipboard' }} />
-        <Drawer.Screen name="settings"  options={{ drawerLabel: 'Settings'  }} />
+
       </Drawer>
     </GestureHandlerRootView>
   );
