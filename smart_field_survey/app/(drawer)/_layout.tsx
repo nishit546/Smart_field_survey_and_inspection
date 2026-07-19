@@ -1,127 +1,130 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { Drawer } from 'expo-router/drawer';
-import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
+import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+const ACCENT = '#a78bfa';
+const BG = '#1a1625';
+const ITEM_ACTIVE_BG = '#2d2540';
+const ITEM_INACTIVE = '#94a3b8';
+const LABEL_COLOR = '#64748b';
+
+type NavItem = {
+  label: string;
+  icon: React.ComponentProps<typeof Ionicons>['name'];
+  route: string;
+};
+
+const mainNav: NavItem[] = [
+  { label: 'Dashboard',  icon: 'grid-outline',          route: '/(drawer)/(tabs)'            },
+  { label: 'New Survey', icon: 'document-text-outline',  route: '/(drawer)/(tabs)/new-survey' },
+  { label: 'History',    icon: 'time-outline',           route: '/(drawer)/(tabs)/history'    },
+];
+
+const toolsNav: NavItem[] = [
+  { label: 'Camera',    icon: 'camera-outline',    route: '/(drawer)/camera'    },
+  { label: 'Location',  icon: 'location-outline',  route: '/(drawer)/location'  },
+  { label: 'Contacts',  icon: 'people-outline',    route: '/(drawer)/contacts'  },
+  { label: 'Clipboard', icon: 'clipboard-outline', route: '/(drawer)/clipboard' },
+];
+
+const otherNav: NavItem[] = [
+  { label: 'Settings', icon: 'settings-outline', route: '/(drawer)/settings' },
+];
+
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const state = props.state;
-  
-  // Find current active route
+
   const currentRoute = state.routes[state.index];
   const currentRouteName = currentRoute.name;
 
-  // Check if drawer item is active
-  const isTabActive = (tabIndex: number) => {
-    if (currentRouteName !== '(tabs)') return false;
-    const tabState = currentRoute.state;
-    if (!tabState) {
-      // Default to index 0 on startup
-      return tabIndex === 0;
+  const isActive = (route: string) => {
+    if (route === '/(drawer)/(tabs)') {
+      if (currentRouteName !== '(tabs)') return false;
+      const tabState = currentRoute.state;
+      return !tabState || tabState.index === 0;
     }
-    return tabState.index === tabIndex;
+    if (route === '/(drawer)/(tabs)/new-survey') {
+      if (currentRouteName !== '(tabs)') return false;
+      const tabState = currentRoute.state;
+      return tabState?.index === 1;
+    }
+    if (route === '/(drawer)/(tabs)/history') {
+      if (currentRouteName !== '(tabs)') return false;
+      const tabState = currentRoute.state;
+      return tabState?.index === 2;
+    }
+    return currentRouteName === route.replace('/(drawer)/', '');
   };
 
-  const isScreenActive = (screenName: string) => {
-    return currentRouteName === screenName;
+  const NavRow = ({ item }: { item: NavItem }) => {
+    const active = isActive(item.route);
+    return (
+      <Pressable
+        style={[styles.navItem, active && styles.navItemActive]}
+        onPress={() => router.push(item.route as any)}
+      >
+        <Ionicons
+          name={item.icon}
+          size={20}
+          color={active ? ACCENT : ITEM_INACTIVE}
+        />
+        <Text style={[styles.navLabel, active && styles.navLabelActive]}>
+          {item.label}
+        </Text>
+        {active && <View style={styles.activePill} />}
+      </Pressable>
+    );
   };
+
+  const SectionLabel = ({ title }: { title: string }) => (
+    <Text style={styles.sectionLabel}>{title}</Text>
+  );
 
   return (
-    <DrawerContentScrollView {...props} contentContainerStyle={styles.container}>
-      <View style={[styles.header, { paddingTop: insets.top + 20 }]}>
-        <View style={styles.avatar}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.avatarBox}>
           <Text style={styles.avatarText}>NS</Text>
         </View>
-        <Text style={styles.name}>Nishit</Text>
-        <Text style={styles.role}>Lead Field Inspector</Text>
-        <Text style={styles.idText}>Student ID: SF-2026-99</Text>
+        <View>
+          <Text style={styles.name}>Nishit</Text>
+          <Text style={styles.role}>Lead Field Inspector</Text>
+          <Text style={styles.idBadge}>SF-2026-99</Text>
+        </View>
       </View>
 
       <View style={styles.divider} />
 
-      <View style={styles.menuItems}>
-        <DrawerItem
-          label="Dashboard"
-          icon={({ color, size }) => (
-            <Ionicons name="grid-outline" size={size} color={isTabActive(0) ? '#6d28d9' : color} />
-          )}
-          focused={isTabActive(0)}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/(tabs)')}
-        />
-        <DrawerItem
-          label="Survey"
-          icon={({ color, size }) => (
-            <Ionicons name="document-text-outline" size={size} color={isTabActive(1) ? '#6d28d9' : color} />
-          )}
-          focused={isTabActive(1)}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/(tabs)/new-survey')}
-        />
-        <DrawerItem
-          label="Camera"
-          icon={({ color, size }) => (
-            <Ionicons name="camera-outline" size={size} color={isScreenActive('camera') ? '#6d28d9' : color} />
-          )}
-          focused={isScreenActive('camera')}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/camera')}
-        />
-        <DrawerItem
-          label="Contacts"
-          icon={({ color, size }) => (
-            <Ionicons name="people-outline" size={size} color={isScreenActive('contacts') ? '#6d28d9' : color} />
-          )}
-          focused={isScreenActive('contacts')}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/contacts')}
-        />
-        <DrawerItem
-          label="Location"
-          icon={({ color, size }) => (
-            <Ionicons name="location-outline" size={size} color={isScreenActive('location') ? '#6d28d9' : color} />
-          )}
-          focused={isScreenActive('location')}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/location')}
-        />
-        <DrawerItem
-          label="Clipboard"
-          icon={({ color, size }) => (
-            <Ionicons name="clipboard-outline" size={size} color={isScreenActive('clipboard') ? '#6d28d9' : color} />
-          )}
-          focused={isScreenActive('clipboard')}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/clipboard')}
-        />
-        <DrawerItem
-          label="Settings"
-          icon={({ color, size }) => (
-            <Ionicons name="settings-outline" size={size} color={isScreenActive('settings') ? '#6d28d9' : color} />
-          )}
-          focused={isScreenActive('settings')}
-          activeTintColor="#6d28d9"
-          activeBackgroundColor="#e0f2fe"
-          onPress={() => router.push('/(drawer)/settings')}
-        />
-      </View>
+      {/* Navigation */}
+      <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+        <SectionLabel title="MAIN" />
+        {mainNav.map(item => <NavRow key={item.route} item={item} />)}
 
-      <View style={styles.footer}>
+        <View style={styles.divider} />
+
+        <SectionLabel title="TOOLS" />
+        {toolsNav.map(item => <NavRow key={item.route} item={item} />)}
+
+        <View style={styles.divider} />
+
+        <SectionLabel title="OTHER" />
+        {otherNav.map(item => <NavRow key={item.route} item={item} />)}
+      </ScrollView>
+
+      {/* Footer */}
+      <View style={[styles.footer, { paddingBottom: insets.bottom + 12 }]}>
         <Text style={styles.footerText}>Smart Field Survey v1.0.0</Text>
-        <Text style={styles.footerSubText}>Developed by Nishit</Text>
+        <Text style={styles.footerSub}>by Nishit Suthar</Text>
       </View>
-    </DrawerContentScrollView>
+    </View>
   );
 }
 
@@ -132,17 +135,15 @@ export default function DrawerLayout() {
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
           headerShown: false,
-          drawerStyle: {
-            width: 280,
-          },
+          drawerStyle: { width: 270, backgroundColor: BG },
         }}
       >
-        <Drawer.Screen name="(tabs)" options={{ drawerLabel: 'Dashboard' }} />
-        <Drawer.Screen name="camera" options={{ drawerLabel: 'Camera' }} />
-        <Drawer.Screen name="contacts" options={{ drawerLabel: 'Contacts' }} />
-        <Drawer.Screen name="location" options={{ drawerLabel: 'Location' }} />
+        <Drawer.Screen name="(tabs)"    options={{ drawerLabel: 'Dashboard' }} />
+        <Drawer.Screen name="camera"    options={{ drawerLabel: 'Camera'    }} />
+        <Drawer.Screen name="contacts"  options={{ drawerLabel: 'Contacts'  }} />
+        <Drawer.Screen name="location"  options={{ drawerLabel: 'Location'  }} />
         <Drawer.Screen name="clipboard" options={{ drawerLabel: 'Clipboard' }} />
-        <Drawer.Screen name="settings" options={{ drawerLabel: 'Settings' }} />
+        <Drawer.Screen name="settings"  options={{ drawerLabel: 'Settings'  }} />
       </Drawer>
     </GestureHandlerRootView>
   );
@@ -151,71 +152,109 @@ export default function DrawerLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: BG,
   },
   header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
     paddingHorizontal: 20,
-    paddingBottom: 20,
-    alignItems: 'flex-start',
-    backgroundColor: '#6d28d9',
+    paddingVertical: 20,
   },
-  avatar: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: '#fff',
+  avatarBox: {
+    width: 52,
+    height: 52,
+    borderRadius: 14,
+    backgroundColor: ITEM_ACTIVE_BG,
+    borderWidth: 1.5,
+    borderColor: ACCENT,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
   },
   avatarText: {
-    color: '#6d28d9',
-    fontSize: 24,
-    fontWeight: 'bold',
+    color: ACCENT,
+    fontSize: 18,
+    fontWeight: '800',
   },
   name: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
+    color: '#f1f5f9',
+    fontSize: 16,
+    fontWeight: '700',
   },
   role: {
-    fontSize: 13,
-    color: '#e0f2fe',
-    marginTop: 2,
+    color: '#94a3b8',
+    fontSize: 12,
+    marginTop: 1,
   },
-  idText: {
-    fontSize: 11,
-    color: '#bae6fd',
-    marginTop: 2,
+  idBadge: {
+    color: ACCENT,
+    fontSize: 10,
+    fontWeight: '600',
+    marginTop: 3,
     fontFamily: 'monospace',
   },
   divider: {
     height: 1,
-    backgroundColor: '#e5e7eb',
-    marginVertical: 10,
+    backgroundColor: '#2d2d3a',
+    marginHorizontal: 16,
+    marginVertical: 6,
   },
-  menuItems: {
+  scroll: {
     flex: 1,
+    paddingTop: 4,
+  },
+  sectionLabel: {
+    color: LABEL_COLOR,
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 1.2,
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    marginTop: 4,
+  },
+  navItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    marginHorizontal: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    borderRadius: 10,
+    marginBottom: 2,
+  },
+  navItemActive: {
+    backgroundColor: ITEM_ACTIVE_BG,
+  },
+  navLabel: {
+    flex: 1,
+    color: ITEM_INACTIVE,
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  navLabelActive: {
+    color: '#f1f5f9',
+    fontWeight: '700',
+  },
+  activePill: {
+    width: 4,
+    height: 16,
+    borderRadius: 2,
+    backgroundColor: ACCENT,
   },
   footer: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
-    alignItems: 'center',
+    borderTopColor: '#2d2d3a',
   },
   footerText: {
-    fontSize: 12,
-    color: '#6b7280',
+    color: '#475569',
+    fontSize: 11,
     fontWeight: '600',
   },
-  footerSubText: {
+  footerSub: {
+    color: '#334155',
     fontSize: 10,
-    color: '#9ca3af',
     marginTop: 2,
   },
 });
