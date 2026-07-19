@@ -7,11 +7,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-const ACCENT = '#a78bfa';
-const BG = '#1a1625';
-const ITEM_ACTIVE_BG = '#2d2540';
-const ITEM_INACTIVE = '#94a3b8';
-const LABEL_COLOR = '#64748b';
+const ACCENT = '#6d28d9';
+const BG = '#ffffff';
+const ITEM_ACTIVE_BG = '#ede9fe';
+const ITEM_INACTIVE = '#64748b';
+const LABEL_COLOR = '#94a3b8';
 
 type NavItem = {
   label: string;
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 14,
-    backgroundColor: ITEM_ACTIVE_BG,
+    backgroundColor: '#ede9fe',
     borderWidth: 1.5,
     borderColor: ACCENT,
     alignItems: 'center',
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   name: {
-    color: '#f1f5f9',
+    color: '#1e293b',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: '#2d2d3a',
+    backgroundColor: '#e5e7eb',
     marginHorizontal: 16,
     marginVertical: 6,
   },
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   navLabelActive: {
-    color: '#f1f5f9',
+    color: '#1e293b',
     fontWeight: '700',
   },
   activePill: {
@@ -245,15 +245,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#2d2d3a',
+    borderTopColor: '#e5e7eb',
   },
   footerText: {
-    color: '#475569',
+    color: '#64748b',
     fontSize: 11,
     fontWeight: '600',
   },
   footerSub: {
-    color: '#334155',
+    color: '#94a3b8',
     fontSize: 10,
     marginTop: 2,
   },
