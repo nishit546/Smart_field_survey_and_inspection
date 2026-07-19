@@ -76,7 +76,7 @@ export default function DashboardScreen() {
         {/* Student Details Card */}
         <View style={[styles.studentCard, { backgroundColor: isDark ? '#1e293b' : '#ffffff' }]}>
           <View style={styles.studentHeader}>
-            <Ionicons name="school" size={24} color="#0a7ea4" />
+            <Ionicons name="school" size={24} color="#6d28d9" />
             <Text style={[styles.studentTitle, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
               Developer / Student Details
             </Text>
@@ -413,7 +413,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   emptyButton: {
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 20,

@@ -48,70 +48,70 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         <DrawerItem
           label="Dashboard"
           icon={({ color, size }) => (
-            <Ionicons name="grid-outline" size={size} color={isTabActive(0) ? '#0a7ea4' : color} />
+            <Ionicons name="grid-outline" size={size} color={isTabActive(0) ? '#6d28d9' : color} />
           )}
           focused={isTabActive(0)}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/(tabs)')}
         />
         <DrawerItem
           label="Survey"
           icon={({ color, size }) => (
-            <Ionicons name="document-text-outline" size={size} color={isTabActive(1) ? '#0a7ea4' : color} />
+            <Ionicons name="document-text-outline" size={size} color={isTabActive(1) ? '#6d28d9' : color} />
           )}
           focused={isTabActive(1)}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/(tabs)/new-survey')}
         />
         <DrawerItem
           label="Camera"
           icon={({ color, size }) => (
-            <Ionicons name="camera-outline" size={size} color={isScreenActive('camera') ? '#0a7ea4' : color} />
+            <Ionicons name="camera-outline" size={size} color={isScreenActive('camera') ? '#6d28d9' : color} />
           )}
           focused={isScreenActive('camera')}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/camera')}
         />
         <DrawerItem
           label="Contacts"
           icon={({ color, size }) => (
-            <Ionicons name="people-outline" size={size} color={isScreenActive('contacts') ? '#0a7ea4' : color} />
+            <Ionicons name="people-outline" size={size} color={isScreenActive('contacts') ? '#6d28d9' : color} />
           )}
           focused={isScreenActive('contacts')}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/contacts')}
         />
         <DrawerItem
           label="Location"
           icon={({ color, size }) => (
-            <Ionicons name="location-outline" size={size} color={isScreenActive('location') ? '#0a7ea4' : color} />
+            <Ionicons name="location-outline" size={size} color={isScreenActive('location') ? '#6d28d9' : color} />
           )}
           focused={isScreenActive('location')}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/location')}
         />
         <DrawerItem
           label="Clipboard"
           icon={({ color, size }) => (
-            <Ionicons name="clipboard-outline" size={size} color={isScreenActive('clipboard') ? '#0a7ea4' : color} />
+            <Ionicons name="clipboard-outline" size={size} color={isScreenActive('clipboard') ? '#6d28d9' : color} />
           )}
           focused={isScreenActive('clipboard')}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/clipboard')}
         />
         <DrawerItem
           label="Settings"
           icon={({ color, size }) => (
-            <Ionicons name="settings-outline" size={size} color={isScreenActive('settings') ? '#0a7ea4' : color} />
+            <Ionicons name="settings-outline" size={size} color={isScreenActive('settings') ? '#6d28d9' : color} />
           )}
           focused={isScreenActive('settings')}
-          activeTintColor="#0a7ea4"
+          activeTintColor="#6d28d9"
           activeBackgroundColor="#e0f2fe"
           onPress={() => router.push('/(drawer)/settings')}
         />
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 20,
     alignItems: 'flex-start',
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
   },
   avatar: {
     width: 64,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
   },
   avatarText: {
-    color: '#0a7ea4',
+    color: '#6d28d9',
     fontSize: 24,
     fontWeight: 'bold',
   },

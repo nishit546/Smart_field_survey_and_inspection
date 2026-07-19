@@ -181,7 +181,7 @@ export default function ModalScreen() {
             <Text style={[styles.sectionTitle, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>GPS Geolocation</Text>
             <View style={styles.coordGrid}>
               <View style={styles.coordCell}>
-                <Ionicons name="compass-outline" size={18} color="#0a7ea4" />
+                <Ionicons name="compass-outline" size={18} color="#6d28d9" />
                 <View>
                   <Text style={styles.coordCellLabel}>Latitude</Text>
                   <Text style={[styles.coordCellValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
@@ -190,7 +190,7 @@ export default function ModalScreen() {
                 </View>
               </View>
               <View style={styles.coordCell}>
-                <Ionicons name="compass-outline" size={18} color="#0a7ea4" />
+                <Ionicons name="compass-outline" size={18} color="#6d28d9" />
                 <View>
                   <Text style={styles.coordCellLabel}>Longitude</Text>
                   <Text style={[styles.coordCellValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
@@ -260,7 +260,7 @@ export default function ModalScreen() {
               <Ionicons name="trash-outline" size={16} color="#ef4444" style={{ marginRight: 6 }} />
               <Text style={styles.deleteBtnText}>Delete Record</Text>
             </Pressable>
-            <Pressable style={[styles.submitBtn, { backgroundColor: '#0a7ea4' }]} onPress={handleEdit}>
+            <Pressable style={[styles.submitBtn, { backgroundColor: '#6d28d9' }]} onPress={handleEdit}>
               <Ionicons name="create-outline" size={16} color="#ffffff" style={{ marginRight: 6 }} />
               <Text style={styles.submitBtnText}>Edit Survey</Text>
             </Pressable>
@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   closeBtn: {
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 24,
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     gap: 10,
     padding: 10,
     borderRadius: 8,
-    backgroundColor: 'rgba(10, 126, 164, 0.05)',
+    backgroundColor: 'rgba(109, 40, 217, 0.05)',
   },
   coordCellLabel: {
     fontSize: 10,
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     justifyContent: 'center',
     alignItems: 'center',
   },

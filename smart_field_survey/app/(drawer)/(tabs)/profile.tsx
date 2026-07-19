@@ -26,7 +26,7 @@ export default function ProfileScreen() {
           </Text>
           
           <View style={styles.infoRow}>
-            <Ionicons name="person-outline" size={20} color="#0a7ea4" />
+            <Ionicons name="person-outline" size={20} color="#6d28d9" />
             <View style={styles.infoTextContainer}>
               <Text style={styles.infoLabel}>Full Name</Text>
               <Text style={[styles.infoValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>Nishit</Text>
@@ -34,7 +34,7 @@ export default function ProfileScreen() {
           </View>
 
           <View style={styles.infoRow}>
-            <Ionicons name="card-outline" size={20} color="#0a7ea4" />
+            <Ionicons name="card-outline" size={20} color="#6d28d9" />
             <View style={styles.infoTextContainer}>
               <Text style={styles.infoLabel}>Student ID</Text>
               <Text style={[styles.infoValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>SF-2026-99</Text>
@@ -42,7 +42,7 @@ export default function ProfileScreen() {
           </View>
 
           <View style={styles.infoRow}>
-            <Ionicons name="book-outline" size={20} color="#0a7ea4" />
+            <Ionicons name="book-outline" size={20} color="#6d28d9" />
             <View style={styles.infoTextContainer}>
               <Text style={styles.infoLabel}>Course</Text>
               <Text style={[styles.infoValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>React Native Mini Project</Text>
@@ -50,7 +50,7 @@ export default function ProfileScreen() {
           </View>
 
           <View style={styles.infoRow}>
-            <Ionicons name="ribbon-outline" size={20} color="#0a7ea4" />
+            <Ionicons name="ribbon-outline" size={20} color="#6d28d9" />
             <View style={styles.infoTextContainer}>
               <Text style={styles.infoLabel}>Project Objective</Text>
               <Text style={[styles.infoValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>Smart Field Survey & Inspection App</Text>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,

@@ -187,12 +187,12 @@ export default function ContactsScreen() {
         { 
           backgroundColor: isDark ? '#1e293b' : '#ffffff',
           borderBottomColor: isDark ? '#334155' : '#f1f5f9',
-          borderColor: isSelected ? '#0a7ea4' : 'transparent',
+          borderColor: isSelected ? '#6d28d9' : 'transparent',
           borderWidth: isSelected ? 1 : 0
         }
       ]}>
         <Pressable style={styles.contactPressable} onPress={() => handleSelectContact(item)}>
-          <View style={[styles.avatar, { backgroundColor: isSelected ? '#0a7ea4' : '#e2e8f0' }]}>
+          <View style={[styles.avatar, { backgroundColor: isSelected ? '#6d28d9' : '#e2e8f0' }]}>
             <Text style={[styles.avatarText, { color: isSelected ? '#ffffff' : '#475569' }]}>{initial}</Text>
           </View>
           <View style={styles.contactDetails}>
@@ -212,7 +212,7 @@ export default function ContactsScreen() {
             style={styles.copyButton}
             onPress={() => handleCopyNumber(item.phoneNumber!, item.name)}
           >
-            <Ionicons name="clipboard-outline" size={18} color="#0a7ea4" />
+            <Ionicons name="clipboard-outline" size={18} color="#6d28d9" />
           </Pressable>
         )}
       </View>
@@ -268,7 +268,7 @@ export default function ContactsScreen() {
       {/* Renders Loader */}
       {isLoading ? (
         <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color="#0a7ea4" />
+          <ActivityIndicator size="large" color="#6d28d9" />
           <Text style={styles.loadingText}>Fetching clients...</Text>
         </View>
       ) : (
@@ -282,8 +282,8 @@ export default function ContactsScreen() {
             <RefreshControl
               refreshing={isRefreshing}
               onRefresh={handleRefresh}
-              tintColor="#0a7ea4"
-              colors={['#0a7ea4']}
+              tintColor="#6d28d9"
+              colors={['#6d28d9']}
             />
           }
         />
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#f0f9ff',
+    backgroundColor: '#f5f3ff',
     justifyContent: 'center',
     alignItems: 'center',
   },

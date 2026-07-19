@@ -124,7 +124,7 @@ export default function LocationScreen() {
       {/* Renders permissions checking loader */}
       {permissionStatus === null && (
         <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color="#0a7ea4" />
+          <ActivityIndicator size="large" color="#6d28d9" />
           <Text style={styles.loadingText}>Checking location permission status...</Text>
         </View>
       )}
@@ -133,7 +133,7 @@ export default function LocationScreen() {
       {permissionStatus !== null && !isGranted && (
         <View style={styles.centerContainer}>
           <View style={styles.card}>
-            <Ionicons name="location-outline" size={64} color="#0a7ea4" style={{ alignSelf: 'center' }} />
+            <Ionicons name="location-outline" size={64} color="#6d28d9" style={{ alignSelf: 'center' }} />
             <Text style={[styles.permissionTitle, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
               Location Access Required
             </Text>
@@ -142,7 +142,7 @@ export default function LocationScreen() {
             </Text>
             
             <Pressable 
-              style={[styles.primaryBtn, { backgroundColor: '#0a7ea4' }]}
+              style={[styles.primaryBtn, { backgroundColor: '#6d28d9' }]}
               onPress={handleRequestPermission}
             >
               <Text style={styles.primaryBtnText}>Grant Permission</Text>
@@ -186,7 +186,7 @@ export default function LocationScreen() {
             {/* Latitude Display */}
             <View style={styles.coordinateRow}>
               <View style={styles.coordLabelContainer}>
-                <Ionicons name="compass-outline" size={20} color="#0a7ea4" />
+                <Ionicons name="compass-outline" size={20} color="#6d28d9" />
                 <Text style={styles.coordLabel}>Latitude</Text>
               </View>
               <Text style={[styles.coordValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
@@ -197,7 +197,7 @@ export default function LocationScreen() {
             {/* Longitude Display */}
             <View style={styles.coordinateRow}>
               <View style={styles.coordLabelContainer}>
-                <Ionicons name="compass" size={20} color="#0a7ea4" />
+                <Ionicons name="compass" size={20} color="#6d28d9" />
                 <Text style={styles.coordLabel}>Longitude</Text>
               </View>
               <Text style={[styles.coordValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
@@ -208,7 +208,7 @@ export default function LocationScreen() {
             {/* Accuracy Display */}
             <View style={styles.coordinateRow}>
               <View style={styles.coordLabelContainer}>
-                <Ionicons name="shield-checkmark-outline" size={20} color="#0a7ea4" />
+                <Ionicons name="shield-checkmark-outline" size={20} color="#6d28d9" />
                 <Text style={styles.coordLabel}>Accuracy</Text>
               </View>
               <Text style={[styles.coordValue, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
@@ -220,7 +220,7 @@ export default function LocationScreen() {
           {/* Aesthetic GPS Compass Art */}
           <View style={styles.compassContainer}>
             <View style={[styles.compassOuterCircle, { borderColor: isDark ? '#334155' : '#cbd5e1' }]}>
-              <Ionicons name="navigate-outline" size={96} color="#0a7ea4" style={{ transform: [{ rotate: '45deg' }] }} />
+              <Ionicons name="navigate-outline" size={96} color="#6d28d9" style={{ transform: [{ rotate: '45deg' }] }} />
             </View>
             <Text style={styles.compassText}>GPS Geolocation Sensor Active</Text>
           </View>
@@ -233,17 +233,17 @@ export default function LocationScreen() {
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator size="small" color="#0a7ea4" />
+                <ActivityIndicator size="small" color="#6d28d9" />
               ) : (
                 <>
-                  <Ionicons name="refresh" size={18} color="#0a7ea4" />
+                  <Ionicons name="refresh" size={18} color="#6d28d9" />
                   <Text style={styles.refreshBtnText}>Refresh Location</Text>
                 </>
               )}
             </Pressable>
 
             <Pressable 
-              style={[styles.actionBtn, styles.copyBtn, { backgroundColor: '#0a7ea4' }]} 
+              style={[styles.actionBtn, styles.copyBtn, { backgroundColor: '#6d28d9' }]} 
               onPress={handleCopyLocation}
               disabled={latitude === undefined}
             >
@@ -330,11 +330,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#0a7ea4',
+    borderColor: '#6d28d9',
     marginTop: 12,
   },
   secondaryBtnText: {
-    color: '#0a7ea4',
+    color: '#6d28d9',
     fontSize: 15,
     fontWeight: '700',
   },
@@ -440,10 +440,10 @@ const styles = StyleSheet.create({
   },
   refreshBtn: {
     borderWidth: 1.5,
-    borderColor: '#0a7ea4',
+    borderColor: '#6d28d9',
   },
   refreshBtnText: {
-    color: '#0a7ea4',
+    color: '#6d28d9',
     fontSize: 14,
     fontWeight: '700',
   },

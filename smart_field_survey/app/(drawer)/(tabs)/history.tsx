@@ -112,22 +112,22 @@ export default function HistoryScreen() {
           <View style={styles.attachmentsRow}>
             {hasPhoto && (
               <View style={styles.attachmentIcon}>
-                <Ionicons name="camera" size={14} color="#0a7ea4" />
+                <Ionicons name="camera" size={14} color="#6d28d9" />
               </View>
             )}
             {hasLocation && (
               <View style={styles.attachmentIcon}>
-                <Ionicons name="location" size={14} color="#0a7ea4" />
+                <Ionicons name="location" size={14} color="#6d28d9" />
               </View>
             )}
             {hasContact && (
               <View style={styles.attachmentIcon}>
-                <Ionicons name="person" size={14} color="#0a7ea4" />
+                <Ionicons name="person" size={14} color="#6d28d9" />
               </View>
             )}
             {hasNotes && (
               <View style={styles.attachmentIcon}>
-                <Ionicons name="clipboard" size={14} color="#0a7ea4" />
+                <Ionicons name="clipboard" size={14} color="#6d28d9" />
               </View>
             )}
           </View>
@@ -195,7 +195,7 @@ export default function HistoryScreen() {
             const chipColor = 
               priorityOption === 'High' ? '#ef4444' :
               priorityOption === 'Medium' ? '#d97706' :
-              priorityOption === 'Low' ? '#10b981' : '#0a7ea4';
+              priorityOption === 'Low' ? '#10b981' : '#6d28d9';
 
             return (
               <Pressable
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     width: 26,
     height: 26,
     borderRadius: 13,
-    backgroundColor: 'rgba(10, 126, 164, 0.06)',
+    backgroundColor: 'rgba(109, 40, 217, 0.06)',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -399,7 +399,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   createBtn: {
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 24,

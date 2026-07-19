@@ -31,7 +31,7 @@ export default function CameraScreen() {
   if (!permission) {
     return (
       <View style={[styles.loadingContainer, { backgroundColor: isDark ? '#151718' : '#f8fafc' }]}>
-        <ActivityIndicator size="large" color="#0a7ea4" />
+        <ActivityIndicator size="large" color="#6d28d9" />
         <Text style={styles.loadingText}>Checking camera permissions...</Text>
       </View>
     );
@@ -42,7 +42,7 @@ export default function CameraScreen() {
     return (
       <View style={[styles.permissionContainer, { backgroundColor: isDark ? '#151718' : '#f8fafc' }]}>
         <View style={styles.permissionCard}>
-          <Ionicons name="camera-outline" size={64} color="#0a7ea4" />
+          <Ionicons name="camera-outline" size={64} color="#6d28d9" />
           <Text style={[styles.permissionTitle, { color: isDark ? '#f1f5f9' : '#1e293b' }]}>
             Camera Access Required
           </Text>
@@ -51,7 +51,7 @@ export default function CameraScreen() {
           </Text>
           
           <Pressable 
-            style={[styles.primaryBtn, { backgroundColor: '#0a7ea4' }]}
+            style={[styles.primaryBtn, { backgroundColor: '#6d28d9' }]}
             onPress={requestPermission}
           >
             <Text style={styles.primaryBtnText}>Grant Permission</Text>
@@ -233,7 +233,7 @@ export default function CameraScreen() {
           disabled={isCapturing}
         >
           {isCapturing ? (
-            <ActivityIndicator size="large" color="#0a7ea4" />
+            <ActivityIndicator size="large" color="#6d28d9" />
           ) : (
             <View style={styles.captureInnerCircle} />
           )}
@@ -307,11 +307,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#0a7ea4',
+    borderColor: '#6d28d9',
     marginTop: 12,
   },
   secondaryBtnText: {
-    color: '#0a7ea4',
+    color: '#6d28d9',
     fontSize: 15,
     fontWeight: '700',
   },

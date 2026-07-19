@@ -107,7 +107,7 @@ export default function ClipboardScreen() {
                 style={styles.actionIconBtn}
                 onPress={() => handleCopyText(surveyId, 'Survey ID')}
               >
-                <Ionicons name="copy-outline" size={20} color="#0a7ea4" />
+                <Ionicons name="copy-outline" size={20} color="#6d28d9" />
               </Pressable>
             </View>
 
@@ -124,7 +124,7 @@ export default function ClipboardScreen() {
                 disabled={!contactNumber}
                 onPress={() => handleCopyText(contactNumber, 'Contact Number')}
               >
-                <Ionicons name="copy-outline" size={20} color="#0a7ea4" />
+                <Ionicons name="copy-outline" size={20} color="#6d28d9" />
               </Pressable>
             </View>
 
@@ -141,7 +141,7 @@ export default function ClipboardScreen() {
                 disabled={!coordinates}
                 onPress={() => handleCopyText(coordinates, 'GPS Coordinates')}
               >
-                <Ionicons name="copy-outline" size={20} color="#0a7ea4" />
+                <Ionicons name="copy-outline" size={20} color="#6d28d9" />
               </Pressable>
             </View>
           </View>
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#f0f9ff',
+    backgroundColor: '#f5f3ff',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 12,
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   pasteBtn: {
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
   },
   pasteBtnText: {
     color: '#ffffff',

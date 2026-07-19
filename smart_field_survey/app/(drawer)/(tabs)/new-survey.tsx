@@ -264,7 +264,7 @@ export default function NewSurveyScreen() {
                 onBlur={() => validateField('date', date)}
               />
               <Pressable 
-                style={[styles.todayButton, { backgroundColor: '#0a7ea4' }]}
+                style={[styles.todayButton, { backgroundColor: '#6d28d9' }]}
                 onPress={() => handleTextChange('date', new Date().toISOString().split('T')[0])}
               >
                 <Text style={styles.todayButtonText}>Today</Text>
@@ -301,7 +301,7 @@ export default function NewSurveyScreen() {
                 style={[styles.attachButton, { backgroundColor: isDark ? '#0f172a' : '#f1f5f9' }]}
                 onPress={() => router.push('/(drawer)/camera')}
               >
-                <Text style={[styles.attachButtonText, { color: '#0a7ea4' }]}>
+                <Text style={[styles.attachButtonText, { color: '#6d28d9' }]}>
                   {tempSurvey.photoUri ? 'Retake' : 'Open'}
                 </Text>
               </Pressable>
@@ -330,7 +330,7 @@ export default function NewSurveyScreen() {
                 style={[styles.attachButton, { backgroundColor: isDark ? '#0f172a' : '#f1f5f9' }]}
                 onPress={() => router.push('/(drawer)/location')}
               >
-                <Text style={[styles.attachButtonText, { color: '#0a7ea4' }]}>
+                <Text style={[styles.attachButtonText, { color: '#6d28d9' }]}>
                   {tempSurvey.latitude ? 'Refresh' : 'Get'}
                 </Text>
               </Pressable>
@@ -359,7 +359,7 @@ export default function NewSurveyScreen() {
                 style={[styles.attachButton, { backgroundColor: isDark ? '#0f172a' : '#f1f5f9' }]}
                 onPress={() => router.push('/(drawer)/contacts')}
               >
-                <Text style={[styles.attachButtonText, { color: '#0a7ea4' }]}>
+                <Text style={[styles.attachButtonText, { color: '#6d28d9' }]}>
                   {tempSurvey.contactName ? 'Change' : 'Select'}
                 </Text>
               </Pressable>
@@ -386,7 +386,7 @@ export default function NewSurveyScreen() {
                 style={[styles.attachButton, { backgroundColor: isDark ? '#0f172a' : '#f1f5f9' }]}
                 onPress={() => router.push('/(drawer)/clipboard')}
               >
-                <Text style={[styles.attachButtonText, { color: '#0a7ea4' }]}>
+                <Text style={[styles.attachButtonText, { color: '#6d28d9' }]}>
                   {tempSurvey.notes ? 'Modify' : 'Paste'}
                 </Text>
               </Pressable>
@@ -554,7 +554,7 @@ const styles = StyleSheet.create({
     flex: 2,
     height: 52,
     borderRadius: 12,
-    backgroundColor: '#0a7ea4',
+    backgroundColor: '#6d28d9',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

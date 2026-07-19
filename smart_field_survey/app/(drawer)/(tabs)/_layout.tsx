@@ -5,7 +5,7 @@ import { useColorScheme } from '../../../hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const activeColor = '#0a7ea4';
+  const activeColor = '#6d28d9';
 
   return (
     <Tabs
