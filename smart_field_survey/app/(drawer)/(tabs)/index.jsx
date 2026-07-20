@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         padding: 16,
-        paddingBottom: 32,
+        paddingBottom: 48,
     },
     welcomeBanner: {
         borderRadius: 16,
