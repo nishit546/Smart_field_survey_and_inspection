@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 const SurveyContext = createContext(undefined);
 // Initial empty state for temporary survey
 const initialTempSurvey = {
@@ -20,46 +20,6 @@ export const SurveyProvider = ({ children }) => {
     const [surveys, setSurveys] = useState([]);
     const [tempSurvey, setTempSurvey] = useState(initialTempSurvey);
     const [editingSurveyId, setEditingSurveyId] = useState(null);
-    // Mock data for initial wow factor (dashboard statistics and recent list)
-    useEffect(() => {
-        const mockSurveys = [
-            {
-                id: 'survey-1',
-                siteName: 'Alpha Power Plant',
-                clientName: 'NexGen Energy Corp',
-                description: 'Routine quarterly safety and compliance inspection of generators.',
-                priority: 'High',
-                date: new Date().toISOString().split('T')[0], // Today
-                photoUri: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400',
-                photoCaptureTime: '10:30 AM',
-                latitude: 37.7749,
-                longitude: -122.4194,
-                locationAccuracy: 5.2,
-                contactName: 'Sarah Jenkins',
-                contactNumber: '+1 (555) 019-2834',
-                notes: 'Generator B-2 showed minor coolant leakage. Recommended maintenance within 48 hours.',
-                isSubmitted: true,
-            },
-            {
-                id: 'survey-2',
-                siteName: 'Metro Transit Bridge',
-                clientName: 'Department of Transportation',
-                description: 'Structural inspection of support pillars and rust levels.',
-                priority: 'Medium',
-                date: new Date(Date.now() - 86400000).toISOString().split('T')[0], // Yesterday
-                photoUri: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=400',
-                photoCaptureTime: '02:15 PM',
-                latitude: 34.0522,
-                longitude: -118.2437,
-                locationAccuracy: 12.8,
-                contactName: 'Robert Chen',
-                contactNumber: '+1 (555) 014-9988',
-                notes: 'Pillars are structurally sound. Surface level rust detected, painting scheduled.',
-                isSubmitted: true,
-            },
-        ];
-        setSurveys(mockSurveys);
-    }, []);
     const addSurvey = (surveyData) => {
         const newSurvey = {
             ...surveyData,
