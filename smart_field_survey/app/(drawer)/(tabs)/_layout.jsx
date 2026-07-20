@@ -11,7 +11,7 @@ export default function TabLayout() {
     const activeColor = '#6d28d9';
 
     const extraBottomInset = insets.bottom > 0 ? insets.bottom : 0;
-    const tabHeight = Platform.OS === 'ios' ? (extraBottomInset > 0 ? 88 : 68) : (66 + extraBottomInset);
+    const tabHeight = Platform.OS === 'ios' ? (extraBottomInset > 0 ? 92 : 74) : (74 + extraBottomInset);
 
     return (
         <Tabs screenOptions={{
@@ -22,17 +22,19 @@ export default function TabLayout() {
                 borderTopWidth: 1,
                 borderTopColor: colorScheme === 'dark' ? '#2d3135' : '#e5e7eb',
                 height: tabHeight,
-                paddingBottom: extraBottomInset > 0 ? extraBottomInset + 2 : 8,
-                paddingTop: 6,
+                paddingBottom: extraBottomInset > 0 ? extraBottomInset + 12 : 14,
+                paddingTop: 4,
                 backgroundColor: colorScheme === 'dark' ? '#151718' : '#ffffff',
             },
             tabBarLabelStyle: {
                 fontSize: 11,
                 fontWeight: '600',
-                paddingBottom: 2,
+                marginTop: -2,
+                marginBottom: 2,
             },
             tabBarItemStyle: {
-                paddingVertical: 2,
+                justifyContent: 'center',
+                alignItems: 'center',
             },
         }}>
       <Tabs.Screen name="index" options={{
